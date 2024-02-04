@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import TransactionItem from "./TransactionItem";
 import TransactionForm from "./TransactionForm";
 import TransactionFilter from "./TransactionFilter";
+import "./TransactionList.css";
 
 function TransactionList() {
   const [transactions, setTransactions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTransaction, setSearchTransaction] = useState("");
+  const [sortTransaction, setSortTransaction] = useState("Default");
 
   const fetchData = () => {
     fetch("http://localhost:8001/transactions")
@@ -41,9 +43,18 @@ function TransactionList() {
   };
 
   const handleFormSubmit = (newTransaction) => {
+    const capitalizedCategory =
+      newTransaction.category.charAt(0).toUpperCase() +
+      newTransaction.category.slice(1);
+
+    const modifiedTransaction = {
+      ...newTransaction,
+      category: capitalizedCategory,
+    };
+
     setTransactions((prevTransactions) => [
       ...prevTransactions,
-      newTransaction,
+      modifiedTransaction,
     ]);
   };
 
@@ -51,11 +62,22 @@ function TransactionList() {
     setSearchTransaction(term);
   };
 
+  const handleSortChange = (option) => {
+    setSortTransaction(option);
+  };
+
   const transactionsFiltered = transactions.filter((transaction) =>
     transaction.description
       .toLowerCase()
       .includes(searchTransaction.toLowerCase())
   );
+
+  const transactionsToDisplay =
+    sortTransaction === "alphabetical"
+      ? [...transactionsFiltered].sort((a, b) =>
+          a.category.localeCompare(b.category)
+        )
+      : transactionsFiltered;
 
   return (
     <div>
@@ -66,12 +88,20 @@ function TransactionList() {
           <TransactionFilter
             search={searchTransaction}
             onSearchChange={handleSearchChange}
+            handleSortChange={handleSortChange}
           />
-          <TransactionForm onFormSubmit={handleFormSubmit} />
-          <TransactionItem
-            transactions={transactionsFiltered}
-            handleDelete={handleDelete}
-          />
+          <div className="content">
+            <div className="transactionForm">
+              <TransactionForm onFormSubmit={handleFormSubmit} />
+            </div>
+
+            <div className="transactionItemTable">
+              <TransactionItem
+                transactions={transactionsToDisplay}
+                handleDelete={handleDelete}
+              />
+            </div>
+          </div>
         </div>
       )}
     </div>
