@@ -1,11 +1,10 @@
 .my-form{
-  margin: auto;
+  margin-top: 10px;
+  margin-left: 10px;
   border: 2px solid rgb(23, 61, 83);
-  max-width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 300px;
   padding-bottom: 10px;
+  border-radius: 12px;
   box-sizing: border-box;
 }
 form {
@@ -26,6 +25,7 @@ select {
   padding: 6px;
   margin-top: 5px;
   border-radius: 12px;
+  border: 2px solid rgb(23, 61, 83);
   box-sizing: border-box;
 }
 
