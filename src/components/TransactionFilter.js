@@ -1,7 +1,7 @@
 import React from "react";
 import "./TransactionFilter.css";
 
-function TransactionFilter({ search, onSearchChange }) {
+function TransactionFilter({ search, onSearchChange, handleSortChange }) {
   return (
     <div>
       <div className="search-bar">
@@ -20,9 +20,13 @@ function TransactionFilter({ search, onSearchChange }) {
       <div className="sort-bar">
         <label>
           Sort Transactions By:
-          <select name="sort" id="sort">
+          <select
+            name="sort"
+            id="sort"
+            onChange={(e) => handleSortChange(e.target.value)}
+          >
             <option value="default">Default</option>
-            <option value="alphabetical">Alphabetical</option>
+            <option value="alphabetical">Category</option>
           </select>
         </label>
       </div>
