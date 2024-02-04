@@ -1,0 +1,23 @@
+.search-bar{
+  width: 30%;
+  top: 20px;
+  right: 10px;
+  position: absolute;
+}
+
+.search-bar-input{
+  border-radius: 12px;
+  border: 2px solid rgb(23, 61, 83) ;
+}
+
+.sort-bar{
+  width: 15%;
+  top: 20px;
+  left: 10px;
+  position: absolute;
+}
+
+.sort-bar select{
+  border-radius: 12px;
+  border: 2px solid rgb(23, 61, 83) ; 
+}
