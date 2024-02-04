@@ -4,8 +4,9 @@
   border: 2px solid rgb(23, 61, 83);
   max-width: 300px;
   padding-bottom: 10px;
-  border-radius: 12px;
+  border-radius: 7px;
   box-sizing: border-box;
+  padding: 5px;
 }
 form {
   display: flex;
@@ -24,7 +25,7 @@ select {
   width: 100%;
   padding: 6px;
   margin-top: 5px;
-  border-radius: 12px;
+  border-radius: 7px;
   border: 2px solid rgb(23, 61, 83);
   box-sizing: border-box;
 }
