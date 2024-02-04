@@ -1,0 +1,45 @@
+.my-form{
+  margin: auto;
+  border: 2px solid rgb(23, 61, 83);
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+label {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
