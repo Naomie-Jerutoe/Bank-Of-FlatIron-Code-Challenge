@@ -1,5 +1,7 @@
 import React from "react";
 import "./TransactionItem.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function TransactionItem({ transactions, handleDelete }) {
   return (
@@ -23,13 +25,14 @@ function TransactionItem({ transactions, handleDelete }) {
               <td>{transaction.description}</td>
               <td>{transaction.category}</td>
               <td>{transaction.amount}</td>
-              <td>
-                <button
-                  className="delete-btn"
+              <td style={{ textAlign: "center" }}>
+                <a
+                  title="delete"
+                  className="delete-link"
                   onClick={() => handleDelete(transaction.id)}
                 >
-                  delete
-                </button>
+                  <FontAwesomeIcon icon={faTrash} />
+                </a>
               </td>
             </tr>
           ))}
