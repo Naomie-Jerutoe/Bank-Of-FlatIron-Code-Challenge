@@ -1,0 +1,11 @@
+.content{
+  display:flex;
+}
+
+.transactionForm{
+  width: 25%;
+}
+
+.transactionItemTable{
+  width: 75%
+}
