@@ -38,8 +38,7 @@ function TransactionForm({ onFormSubmit }) {
         <label>
           Date:
           <input
-            type="text"
-            placeholder="Enter the date"
+            type="date"
             name="date"
             id="date"
             required
